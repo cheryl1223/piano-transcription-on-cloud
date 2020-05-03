@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <script>
+         function submit() {
+             document.getElementById("form").submit();
+         }
+      </script>
+   </head>
+   <body>
+
+      <div class="content">
+         <h1 class="title"> PIANO TRANSCRIPTION APP DEMO </h1>
+         <form id="form"  method = "POST"
+               enctype = "multipart/form-data">
+         <div class="image-box center">
+               <label for="file-upload" class="center custom-button">
+                  <i class="fa fa-upload"></i> upload your piano music file
+                  <input type="file" id="file-upload" name="file" onchange=submit() />
+               </label>
+
+         </div>
+         </form>
+      </div>
+   </body>
+</html>
