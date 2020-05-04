@@ -11,10 +11,9 @@ ADD model-500000.pt .
 ADD transcribe.py .
 ADD train.py .
 ADD evaluate.py .
-ADD test.flac .
 ADD /onsets_and_frames ./onsets_and_frames
 ADD /templates ./templates
 ADD app.py .
-RUN apt-get install -y libsndfile1
+RUN apt-get install -y libsndfile-dev
 #CMD ["python", "train.py", "with", "logdir=runs/model","iterations=100"]
 CMD ["python","app.py"]
