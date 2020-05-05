@@ -8,6 +8,7 @@ RUN apt-get update
 RUN apt-get install -y git
 RUN pip install -r requirements.txt --user
 RUN apt-get install -y libsndfile-dev
+RUN apt-get install -y ffmpeg
 ADD model-500000.pt .
 ADD model-65000.pt .
 ADD transcribe.py .
