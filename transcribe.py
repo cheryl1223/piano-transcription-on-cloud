@@ -57,7 +57,7 @@ def transcribe_file(model_file, flac_paths, save_path, sequence_length,
     summary(model)
 
     for flac_path in flac_paths:
-        print(f'Processing {flac_path}...', file=sys.stderr)
+        #print(f'Processing {flac_path}...', file=sys.stderr)
         audio = load_and_process_audio(flac_path, sequence_length, device)
         predictions = transcribe(model, audio)
 
@@ -70,10 +70,10 @@ def transcribe_file(model_file, flac_paths, save_path, sequence_length,
 
         os.makedirs(save_path, exist_ok=True)
         pred_path = os.path.join(save_path, os.path.basename(flac_path) +"." + model_file + '.pred.png')
-        print(f'saved prediction to path: {pred_path}', file=sys.stderr)
+        #print(f'saved prediction to path: {pred_path}', file=sys.stderr)
         save_pianoroll(pred_path, predictions['onset'], predictions['frame'])
         midi_path = os.path.join(save_path, os.path.basename(flac_path) + "." + model_file+'.pred.mid')
-        print(f'saved mid to path: {midi_path}', file=sys.stderr)
+        #print(f'saved mid to path: {midi_path}', file=sys.stderr)
         save_midi(midi_path, p_est, i_est, v_est)
 
 

@@ -16,7 +16,7 @@ def upload():
         file_name = file.filename
         file.save(file_name)
         partial_name = file_name.split(".")[0]
-        flac_name = partial_name + ".flac"
+        flac_name = "converted.flac"
         os.system("ffmpeg -y -i " + file_name+ " -sample_fmt s16 -ac 1 -ar 16000 " + flac_name)
         os.system("python transcribe.py "+ model_name + " "+ flac_name)
         output_name = flac_name +'.' + model_name+ ".pred.mid"
