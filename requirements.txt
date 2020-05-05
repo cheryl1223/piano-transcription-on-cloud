@@ -9,3 +9,4 @@ git+https://github.com/craffel/mir_eval.git
 mido>=1.2.9
 Pillow>=6.2.0
 tensorboard==1.14.0
+Flask==1.1.1

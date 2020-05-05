@@ -13,14 +13,22 @@
          <h1 class="title"> PIANO TRANSCRIPTION APP DEMO </h1>
          <form id="form"  method = "POST"
                enctype = "multipart/form-data">
-         <div class="image-box center">
-               <label for="file-upload" class="center custom-button">
-                  <i class="fa fa-upload"></i> upload your piano music file
-                  <input type="file" id="file-upload" name="file" onchange=submit() />
-               </label>
-
-         </div>
-         </form>
+            <div class="form-group">
+              <div class="input-group">
+                    <span class="input-group-addon">Please select a model: </span>
+                    <select id="model" name="model">
+                        <option value="model-500000.pt">model-500000</option>
+                        <option value="model-65000.pt">model-65000</option>
+                    </select>
+              </div>
+              <div class="image-box center">
+                <label for="file-upload" class="center custom-button">
+                    <i class="fa fa-upload"></i> upload a piano music file: 
+                    <input type="file" id="file-upload" name="file"/>
+                </label>
+            </div>
+              <button type="submit" class="btn btn-default"  onchange=submit() >transcribe </button>
+            </div>
       </div>
    </body>
 </html>

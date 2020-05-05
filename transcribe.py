@@ -69,9 +69,11 @@ def transcribe_file(model_file, flac_paths, save_path, sequence_length,
         p_est = np.array([midi_to_hz(MIN_MIDI + midi) for midi in p_est])
 
         os.makedirs(save_path, exist_ok=True)
-        pred_path = os.path.join(save_path, os.path.basename(flac_path) + '.pred.png')
+        pred_path = os.path.join(save_path, os.path.basename(flac_path) +"." + model_file + '.pred.png')
+        print(f'saved prediction to path: {pred_path}', file=sys.stderr)
         save_pianoroll(pred_path, predictions['onset'], predictions['frame'])
-        midi_path = os.path.join(save_path, os.path.basename(flac_path) + '.pred.mid')
+        midi_path = os.path.join(save_path, os.path.basename(flac_path) + "." + model_file+'.pred.mid')
+        print(f'saved mid to path: {midi_path}', file=sys.stderr)
         save_midi(midi_path, p_est, i_est, v_est)
 
 
