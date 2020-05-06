@@ -16,5 +16,6 @@ kubectl expose deployment transcribe --type=LoadBalancer --port 80 --target-port
 ```
 # check logs
 ```
-kubectl logs transcribe-6b6fd8c944-nxvlt
+kubectl get pods
+kubectl logs <the running pod's name>
 ```
