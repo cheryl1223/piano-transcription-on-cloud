@@ -1,4 +1,5 @@
 # piano-transcription-on-cloud
+currently the service is deployed on GCP running at: http://35.197.79.209/, feel free to try it out!
 
 # deploy a new image to kubernetes
 ```
