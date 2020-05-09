@@ -51,8 +51,9 @@ def transcribe(model, audio):
 
 
 def transcribe_file(model_file, flac_paths, save_path, sequence_length,
-                  onset_threshold, frame_threshold, device):
-
+                  onset_threshold, frame_threshold):
+    
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
     model = torch.load(model_file, map_location=device).eval()
     summary(model)
 
@@ -85,7 +86,6 @@ if __name__ == '__main__':
     parser.add_argument('--sequence-length', default=None, type=int)
     parser.add_argument('--onset-threshold', default=0.5, type=float)
     parser.add_argument('--frame-threshold', default=0.5, type=float)
-    parser.add_argument('--device', default='cuda' if torch.cuda.is_available() else 'cpu')
 
     with torch.no_grad():
         transcribe_file(**vars(parser.parse_args()))
